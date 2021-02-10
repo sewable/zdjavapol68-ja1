@@ -13,9 +13,9 @@ public class Task03 {
         /**
          * Po wykonaniu zadania zmień typ referencji na zdefiniowaną klasę abstrakcyjną w poniższych trzeh wierszach
          */
-        CellPhone superZi = new CellPhone(4000, "Szamsuk", "1678876", 12_000_000);
-        Laptop iDaisy = new Laptop(8000, "XYZ-100 RW", 120, "Daisy Co");
-        SmartWatch handyWatch = new SmartWatch("Quququ", 1000, "black");
+        Device superZi = new CellPhone(4000, "Szamsuk", "1678876", 12_000_000);
+        Device iDaisy = new Laptop(8000, "Daisy Co", "XYZ-100 RW", 120);
+        Device handyWatch = new SmartWatch(1000, "Quququ", "black");
         /**
          * Jeśli po zmianie program wyświetli dokładnie takie same komunikaty, to znaczy, że zadanie zostało wykonane poprawnie
          */

@@ -1,25 +1,13 @@
 package homework.task3;
 
-public class Laptop {
-    final int batteryCapacity;
-    final String dvdDrive;
-    final int powerSupply;
-    final String producer;
-    boolean isWiFi;
+public class Laptop extends Device{
+    String dvdDrive;
+    int powerSupply;
 
-    public Laptop(int batteryCapacity, String dvdDrive, int powerSupply, String producer) {
-        this.batteryCapacity = batteryCapacity;
+    public Laptop(int batteryCapacity, String producer, String dvdDrive, int powerSupply) {
+        super(batteryCapacity, producer);
         this.dvdDrive = dvdDrive;
         this.powerSupply = powerSupply;
-        this.producer = producer;
-    }
-
-    public int maxWorkTime(int consumptionPerHour){
-        return batteryCapacity/consumptionPerHour;
-    }
-
-    public int getBatteryCapacity() {
-        return batteryCapacity;
     }
 
     public String getDvdDrive() {
@@ -30,18 +18,7 @@ public class Laptop {
         return powerSupply;
     }
 
-    public String getProducer() {
-        return producer;
-    }
-
-    public boolean isWiFi() {
-        return isWiFi;
-    }
-
-    public void setWiFi(boolean wiFi) {
-        isWiFi = wiFi;
-    }
-
+    @Override
     public String sendSMS(String sms){
         if (isWiFi){
             return "Your laptop is sending " + sms;

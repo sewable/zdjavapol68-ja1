@@ -16,7 +16,7 @@ package homework.task2;
  * Następnie zaimplementuj w klasach potomnych (SMS, Email) metody abstrakcyjne
  * send() tak, aby: <br>
  * - zwracały komunikat w postaci (odpowiednio dla klasy): "Mail/SMS o treści XXX został wysłany na adres/numer YYY",<br>
- *   gdzie XXX to treść, a YYY adres lub nednodpowimer telefonu
+ *   gdzie XXX to treść, a YYY adres lub odpowiedni nr telefonu
  * - jeśli wiadomości nie da się wysłać to zwraca komunikat: "Mail/SMS nie może zostać wysłany." <br>
  * Przyczynami niewysłania wiadomości mogą być niepoprawne: <br>
  * - adres mail: brak małpy, pusty łańcuch, null, niewystarczająca długość - co najmniej 5 znaków<br>
@@ -32,9 +32,6 @@ package homework.task2;
  *  gdzie XXX to jedna z przyczyn (lub pierwsza wykryta przyczyna): brak treści, brak lub niepoprawny adres, brak lub niepoprawny temat, brak lub niepoprawny numeru telefonu.
  */
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * Wersja dla wymiataczy (trudne)
  * Składowe takie jak content, emailAddress, phoneNumber, subject mogą też mieć swoją klasę bazową abstrakcyjną np. MessageComponent, która może mieć metody abstarkcyjne:
@@ -46,7 +43,8 @@ import java.util.regex.Pattern;
  *  - zmien konstruktor, aby przyjmował tablicę komponentów
  *  - możesz zdefiniować metodę canSend() - wystarczy przejrzeć całą tablicę i wywoływać metode isValid dla każdego komponentu
  *  W klasach potomnych <code>Message</code>:
- *  - sygnatury konstruktorów pozostaw takie jak teraz, zmień tylko ich definicje - musisz utworzyc obiekty komponentów, utworzyć tablicę komponentów i wywołać konstruktor klasy bazowej (da się to zrobić!!!)
+ *  - sygnatury konstruktorów pozostaw takie jak teraz, zmień tylko ich definicje - musisz utworzyc obiekty komponentów, utworzyć tablicę komponentów i wywołać konstruktor klasy
+ *  bazowej (da się to zrobić!!!)
  *  - możesz korzystać ze zdefiniowanej metody canSend()
  *  - jeśli wykryjesz, że wiadomości się nie da wysłać to wywołaj metodę getError dla błednego komponentu - w ten sposób masz komunikt z błędem
  */
@@ -73,18 +71,6 @@ public class Task02 {
          * Mail nie może zostać wysłany.
          * Mail nie może zostać wysłany.
          * Mail nie może zostać wysłany.
-          */
-        System.out.println(send());
-    }
-    public static String send() {
-        String emailAddress = "aaaoppl";
-        String subject = "aaa";
-        if (emailAddress == null) return "Mail nie może zostać wysłany.";
-        Pattern addres = Pattern.compile(".*\\s+([0-9a-zA-Z][\\dA-z-_.]+@([A-z\\d][A-z\\d-]+\\.){1,6}[A-z]{2,6}).*");
-        Matcher givenAddres = addres.matcher(emailAddress);
-        boolean aprovalOfAddres = givenAddres.matches();
-        if (aprovalOfAddres) return "Mail/SMS o treści " + subject + " został wysłany na adres " + emailAddress;
-        else
-            return "Mail nie może zostać wysłany.";
+         */
     }
 }

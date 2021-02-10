@@ -2,21 +2,19 @@ package homework.task2;
 
 public class SMS extends Message{
 
-    final String phoneNumber;
-
-    public SMS(String content) {
-        super(content);
-        phoneNumber = "";
-    }
-
     public SMS(String content, String phoneNumber) {
-        super(content);
-        this.phoneNumber = phoneNumber;
+        super(new MessageComponent[]{
+                new PhoneNumber(phoneNumber),
+                new MessageContent(content)
+        });
     }
 
     @Override
     public String send() {
-        return null;
+        for(MessageComponent c : getComponent()){
+            if(!canSend()) return c.getError();
+        }
+        return "SMS o treści " + getComponent()[1] + " został wysłany na numer " + getComponent()[0];
     }
 
 }
