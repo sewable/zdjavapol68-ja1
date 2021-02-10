@@ -8,7 +8,7 @@ public class HumanTemperature {
         this.temperature = temperature;
     }
 
-    public static HumanTemperature of(float temperature){
+    public static HumanTemperature of(float temperature) {
         return new HumanTemperature(temperature);
     }
 

@@ -45,5 +45,15 @@ public class Task06 {
         System.out.println(temperature.getFahrenfeit());
         System.out.println(temperature.isNormal());
         System.out.println(temperature.format());
+
+        System.out.println();
+
+        Pesel pesel = Pesel.of("12082112341");
+
+        System.out.println(pesel.isValid());
+        System.out.println(pesel.get());
+        System.out.println(pesel.birthDate());
+        System.out.println(pesel.isMale());
+        System.out.println(pesel.isFemale());
     }
 }
