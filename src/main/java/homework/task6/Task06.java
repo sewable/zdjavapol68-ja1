@@ -27,5 +27,13 @@ package homework.task6;
 public class Task06 {
     public static void main(String[] args) {
 
+        EmailAddress email = EmailAddress.of("elo@gmail.com");
+
+        System.out.println(email.isValid());
+        System.out.println(email.get());
+        System.out.println(email.username());
+        System.out.println(email.host());
+        System.out.println(email.topDomain());
+
     }
 }
