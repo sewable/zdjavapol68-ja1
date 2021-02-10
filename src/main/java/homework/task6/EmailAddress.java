@@ -2,7 +2,7 @@ package homework.task6;
 
 public class EmailAddress {
 
-    static String email;
+    private String email;
 
     private EmailAddress(String email) {
         this.email = email;

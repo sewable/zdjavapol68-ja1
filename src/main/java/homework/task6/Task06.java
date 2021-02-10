@@ -35,5 +35,15 @@ public class Task06 {
         System.out.println(email.host());
         System.out.println(email.topDomain());
 
+        System.out.println();
+
+        HumanTemperature temperature = HumanTemperature.of(36.6f);
+
+        System.out.println(temperature.isValid());
+        System.out.println(temperature.get());
+        System.out.println(temperature.getKelvin());
+        System.out.println(temperature.getFahrenfeit());
+        System.out.println(temperature.isNormal());
+        System.out.println(temperature.format());
     }
 }
