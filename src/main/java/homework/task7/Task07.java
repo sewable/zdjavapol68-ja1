@@ -22,5 +22,62 @@ package homework.task7;
 public class Task07 {
     public static void main(String[] args) {
 
+        Egg egg = new Egg("egg", 0.15);
+
+        System.out.println(egg.weight());
+        System.out.println(egg.calories());
+        System.out.println(egg.toString());
+        System.out.println();
+
+        Cheese cheese = new Cheese(0.5, "cheese");
+
+        System.out.println(cheese.weight());
+        System.out.println(cheese.calories());
+        System.out.println(cheese.toString());
+        System.out.println();
+
+        Tomato tomato = new Tomato(1, "tomato");
+
+        System.out.println(tomato.weight());
+        System.out.println(tomato.calories());
+        System.out.println(tomato.toString());
+        System.out.println();
+
+        Cake cake = new Cake(5.2, "cake");
+
+        System.out.println(cake.weight());
+        System.out.println(cake.calories());
+        System.out.println(cake.toString());
+        System.out.println();
+
+        Salt salt = new Salt(2.4, "salt");
+
+        System.out.println(salt.weight());
+        System.out.println(salt.calories());
+        System.out.println(salt.toString());
+        System.out.println();
+
+        Dish breakfast = new Dish(egg, cheese);
+
+        System.out.println(breakfast.weight());
+        System.out.println(breakfast.calories());
+        System.out.println();
+
+        Dish dinner = new Dish(cheese, tomato, salt);
+
+        System.out.println(dinner.weight());
+        System.out.println(dinner.calories());
+        System.out.println();
+
+        Dish dessert = new Dish(cake);
+
+        System.out.println(dessert.weight());
+        System.out.println(dessert.calories());
+        System.out.println();
+
+        Dish allDish = new Dish(breakfast);
+
+        System.out.println(allDish.weight());
+        System.out.println(allDish.calories());
     }
 }
