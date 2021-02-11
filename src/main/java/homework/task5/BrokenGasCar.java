@@ -8,13 +8,13 @@ public class BrokenGasCar extends GasCar {
 
     @Override
     public double refuel(double fuel) {
-        double x = getFuelLevel() + fuel;
-        return x;
+        setFuelLevel(getFuelLevel() + fuel);
+        return fuel;
     }
 
     @Override
     public double consume(double fuel) {
-        double x = getFuelLevel() - fuel;
-        return x;
+        setFuelLevel(getFuelLevel() - fuel);
+        return fuel;
     }
 }

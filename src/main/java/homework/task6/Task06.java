@@ -29,31 +29,34 @@ public class Task06 {
 
         EmailAddress email = EmailAddress.of("elo@gmail.com");
 
-        System.out.println(email.isValid());
-        System.out.println(email.get());
-        System.out.println(email.username());
-        System.out.println(email.host());
-        System.out.println(email.topDomain());
+        if(email != null){
+            System.out.println(email.get());
+            System.out.println(email.username());
+            System.out.println(email.host());
+            System.out.println(email.topDomain());
+        }
 
         System.out.println();
 
         HumanTemperature temperature = HumanTemperature.of(36.6f);
 
-        System.out.println(temperature.isValid());
-        System.out.println(temperature.get());
-        System.out.println(temperature.getKelvin());
-        System.out.println(temperature.getFahrenfeit());
-        System.out.println(temperature.isNormal());
-        System.out.println(temperature.format());
+        if(temperature != null) {
+            System.out.println(temperature.get());
+            System.out.println(temperature.getKelvin());
+            System.out.println(temperature.getFahrenfeit());
+            System.out.println(temperature.isNormal());
+            System.out.println(temperature.format());
+        }
 
         System.out.println();
 
         Pesel pesel = Pesel.of("12082112341");
 
-        System.out.println(pesel.isValid());
-        System.out.println(pesel.get());
-        System.out.println(pesel.birthDate());
-        System.out.println(pesel.isMale());
-        System.out.println(pesel.isFemale());
+        if(pesel != null) {
+            System.out.println(pesel.get());
+            System.out.println(pesel.birthDate());
+            System.out.println(pesel.isMale());
+            System.out.println(pesel.isFemale());
+        }
     }
 }

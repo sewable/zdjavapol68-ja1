@@ -9,10 +9,11 @@ public class EmailAddress {
     }
 
     public static EmailAddress of(String email){
-        return new EmailAddress(email);
+        if(isValid(email)) return new EmailAddress(email);
+        return null;
     }
 
-    public boolean isValid(){
+    public static boolean isValid(String email){
         return email.matches("\\w+@\\w+\\.\\w+");
     }
 

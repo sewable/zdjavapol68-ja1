@@ -9,10 +9,11 @@ public class Pesel {
     }
 
     public static Pesel of(String pesel){
-        return new Pesel(pesel);
+        if(isValid(pesel)) return new Pesel(pesel);
+        return null;
     }
 
-    public boolean isValid(){
+    public static boolean isValid(String pesel){
         return pesel.matches("\\d{11}");
     }
 

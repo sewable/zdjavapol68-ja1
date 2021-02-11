@@ -9,10 +9,11 @@ public class HumanTemperature {
     }
 
     public static HumanTemperature of(float temperature) {
-        return new HumanTemperature(temperature);
+        if(isValid(temperature)) return new HumanTemperature(temperature);
+        return null;
     }
 
-    public boolean isValid(){
+    public static boolean isValid(float temperature){
         return temperature >= 20 && temperature <= 43;
     }
 

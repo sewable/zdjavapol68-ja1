@@ -41,9 +41,14 @@ public class GasCar {
      * wywołano metodę refuel(5) i zwrócona wartość wynosi 5, gdyż cała porcja zmieściła się w baku
      */
     public double refuel(double fuel) {
-        if(fuel < 0) return fuelLevel;
-        if(fuelLevel + fuel > fuelCapacity) return fuelLevel = fuelCapacity;
-        return fuelLevel += fuel;
+        if(fuel < 0) return 0;
+        if(fuelLevel + fuel > fuelCapacity) {
+            double pastFuel = fuelLevel;
+            fuelLevel = fuelCapacity;
+            return fuelCapacity - pastFuel;
+        }
+        fuelLevel += fuel;
+        return fuel;
     }
 
     /**
@@ -63,12 +68,21 @@ public class GasCar {
      * wywołano metodę consume(2) i otrzymano wartość 2, gdyż w baku było 10, więc zużyto 2 i pozostało jeszcze 8
      */
     public double consume(double fuel) {
-        if(fuel < 0) return fuelLevel;
-        if(fuelLevel - fuel < 0) return fuelLevel = 0;
-        return fuelLevel -= fuel;
+        if(fuel < 0) return 0;
+        if(fuelLevel - fuel < 0) {
+            double pastFuel = fuelLevel;
+            fuelLevel = 0;
+            return pastFuel;
+        }
+        fuelLevel -= fuel;
+        return fuel;
     }
 
     public double getFuelLevel() {
         return fuelLevel;
+    }
+
+    public void setFuelLevel(double fuelLevel) {
+        this.fuelLevel = fuelLevel;
     }
 }
