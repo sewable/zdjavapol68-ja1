@@ -57,27 +57,33 @@ public class Task07 {
         System.out.println(salt.toString());
         System.out.println();
 
-        Dish breakfast = new Dish(egg, cheese);
+        Ingredient[] firstDish = new Ingredient[]{egg, cheese};
+        Ingredient[] secondDish = new Ingredient[]{cheese, tomato, salt};
+        Ingredient[] thirdDish = new Ingredient[]{cake};
+
+        Dish breakfast = new Dish(firstDish);
 
         System.out.println(breakfast.weight());
         System.out.println(breakfast.calories());
         System.out.println();
 
-        Dish dinner = new Dish(cheese, tomato, salt);
+        Dish dinner = new Dish(secondDish);
 
         System.out.println(dinner.weight());
         System.out.println(dinner.calories());
         System.out.println();
 
-        Dish dessert = new Dish(cake);
+        Dish dessert = new Dish(thirdDish);
 
         System.out.println(dessert.weight());
         System.out.println(dessert.calories());
         System.out.println();
 
-        Dish allDish = new Dish(breakfast);
+        /*Dish allDish = new Dish(fourthDish);
 
         System.out.println(allDish.weight());
-        System.out.println(allDish.calories());
+        System.out.println(allDish.calories());*/
+
+        System.out.println(breakfast.price());
     }
 }

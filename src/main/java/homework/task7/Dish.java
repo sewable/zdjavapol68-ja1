@@ -1,23 +1,11 @@
 package homework.task7;
 
-public class Dish implements Ingredient{
+public class Dish implements ValuableIngredient{
 
     private Ingredient[] ingredients;
 
-    public Dish(Egg egg, Cheese cheese) {
-        ingredients = new Ingredient[]{egg, cheese};
-    }
-
-    public Dish(Cheese cheese, Tomato tomato, Salt salt) {
-        ingredients = new Ingredient[]{cheese, tomato, salt};
-    }
-
-    public Dish(Cake cake) {
-        ingredients = new Ingredient[]{cake};
-    }
-
-    public Dish(Dish dish) {
-        ingredients = new Ingredient[]{dish};
+    public Dish(Ingredient[] ingredients) {
+        this.ingredients = ingredients;
     }
 
     @Override
@@ -36,5 +24,16 @@ public class Dish implements Ingredient{
             calories += food.calories();
         }
         return calories;
+    }
+
+    @Override
+    public double price() {
+        double sum = 0;
+        for(Ingredient food : ingredients) {
+            if(food instanceof Valuable) {
+                sum += (((Valuable) food).price() * food.weight());
+            }
+        }
+        return sum;
     }
 }
