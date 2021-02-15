@@ -1,5 +1,8 @@
 package homework.task9;
 
+import homework.task9.player.GameBoard;
+import homework.task9.player.PlayerMark;
+
 /**
  * Klasa GameBoard opisuje planszę do gry w kołko i krzyżyk.
  * W jej konstruktorze tworzone są dwa obiekty klasy PlayerMark,
@@ -31,8 +34,6 @@ public class Task09 {
         PlayerMark[] players = board.getMarks(); // po wykonaniu zadania zmień typ referencji players
         board.markAt(players[0],0,0);
         board.markAt(players[1], 0, 1);
-        PlayerMark newMark = new PlayerMark("","#"); //po wykonaniu zadania usuń ten wiersz
-        board.markAt(newMark, 0,2);                   //po wykonaniu zadania usuń ten wiersz
         System.out.println(board);
     }
 }

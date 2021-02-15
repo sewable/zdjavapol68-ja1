@@ -1,26 +1,28 @@
-package homework.task9;
+package homework.task9.player;
 
-import java.util.Arrays;
+import homework.task9.player.PlayerMark;
 
 public class GameBoard {
+
     private PlayerMark[][] board;
     private final PlayerMark markOne;
     private final PlayerMark markTwo;
 
     public GameBoard(String playerOneName, String playerTwoName) {
         this.board = new PlayerMark[3][3];
-        this.markOne = new PlayerMark(playerOneName,"X");
+        this.markOne = new PlayerMark(playerOneName, "X");
         this.markTwo = new PlayerMark(playerTwoName, "O");
     }
 
 
     /**
      * Metoda wstawia na planszy gry znacznik gracza
+     *
      * @param player
      * @param row
      * @param column
      */
-    public void markAt(PlayerMark player, int row, int column){
+    public void markAt(PlayerMark player, int row, int column) {
         board[row][column] = player;
     }
 
@@ -31,8 +33,8 @@ public class GameBoard {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for(PlayerMark[] row: board){
-            for(PlayerMark cell: row){
+        for (PlayerMark[] row : board) {
+            for (PlayerMark cell : row) {
                 if (cell == null) {
                     sb.append("_");
                     sb.append(" ");
