@@ -25,4 +25,12 @@ public class Ham implements Ingredient{
     public double calories() {
         return weight * caloriesPerGram;
     }
+
+    @Override
+    public String toString() {
+        return "Ham{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
 }

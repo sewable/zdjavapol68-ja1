@@ -29,5 +29,28 @@ package homework.task12;
 public class Task12 {
     public static void main(String[] args) {
 
+        Egg egg = new Egg("Egg", 100);
+        Ham ham = new Ham("Ham", 260, 4.6);
+        Dish breakfast = new Dish("Breakfast");
+
+        breakfast.addIngredient(egg);
+        breakfast.addIngredient(ham);
+        System.out.println(breakfast.ingredients());
+        System.out.println(breakfast.weight());
+        System.out.println(breakfast.calories());
+
+        Cake cake = new Cake("Cake", 1200);
+        Tomato tomato = new Tomato("Tomato", 250, 0.54);
+        Cheese cheese = new Cheese("Cheese", 360);
+        Pizza pizza = new Pizza("Pizza");
+
+        System.out.println(pizza.addCake(cake));
+        System.out.println(pizza.addCake(cake));
+        System.out.println(pizza.addTomato(tomato));
+        System.out.println(pizza.addTomato(tomato));
+        System.out.println(pizza.addCheese(cheese));
+        System.out.println(pizza.addCheese(cheese));
+        System.out.println(pizza.isReady());
+
     }
 }

@@ -75,7 +75,7 @@ class Email {
     public int hashCode() {
         return Objects.hash(username, host);
         //TAK NIE WOLNO! Jeśli w equals korzystamy tylko z username to w hashCode też tylko z username!
-        //(tutaj bez hosta)
+        //(tutaj powinno być bez hosta)
     }
 }
 
