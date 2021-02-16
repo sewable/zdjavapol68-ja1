@@ -22,20 +22,20 @@ class EmailAddressTest {
     }
 
     @Test
-    void from() {
+    void from() throws Exception{
         assertEquals("aa@op.pl", EmailAddress.of("aa", "op.pl").get());
 
-//        assertThrows(IllegalUsernameException.class, () -> EmailAddress.of("", "@op.pl"));
-//        assertThrows(IllegalUsernameException.class, () -> EmailAddress.of(null, "@op.pl"));
-//        assertThrows(IllegalUsernameException.class, () -> EmailAddress.of("as@kl", "@op.pl"));
-//        assertThrows(IllegalUsernameException.class, () -> EmailAddress.of("12as", "@op.pl"));
-//
-//        assertThrows(IllegalHostException.class, () -> EmailAddress.of("aaa.oa", "op"));
-//        assertThrows(IllegalHostException.class, () -> EmailAddress.of("aaa", "op"));
-//        assertThrows(IllegalHostException.class, () -> EmailAddress.of("aaa", "op.p1"));
-//        assertThrows(IllegalHostException.class, () -> EmailAddress.of("aaa", "op.p1"));
-//        assertThrows(IllegalHostException.class, () -> EmailAddress.of("aaa", null));
-//        assertThrows(IllegalHostException.class, () -> EmailAddress.of("aaa", ""));
+        assertThrows(IllegalUsernameException.class, () -> EmailAddress.of("", "@op.pl"));
+        assertThrows(IllegalUsernameException.class, () -> EmailAddress.of(null, "@op.pl"));
+        assertThrows(IllegalUsernameException.class, () -> EmailAddress.of("as@kl", "@op.pl"));
+        assertThrows(IllegalUsernameException.class, () -> EmailAddress.of("12as", "@op.pl"));
+
+        assertThrows(IllegalHostException.class, () -> EmailAddress.of("aaa.oa", "op"));
+        assertThrows(IllegalHostException.class, () -> EmailAddress.of("aaa", "op"));
+        assertThrows(IllegalHostException.class, () -> EmailAddress.of("aaa", "op.p1"));
+        assertThrows(IllegalHostException.class, () -> EmailAddress.of("aaa", "op.p1"));
+        assertThrows(IllegalHostException.class, () -> EmailAddress.of("aaa", null));
+        assertThrows(IllegalHostException.class, () -> EmailAddress.of("aaa", ""));
 
     }
 

@@ -2,6 +2,12 @@ package homework.task10;
 
 import java.util.Objects;
 
+class IllegalUsernameException extends Exception {
+}
+
+class IllegalHostException extends Exception {
+}
+
 public class EmailAddress {
     final String address;
 
@@ -13,28 +19,42 @@ public class EmailAddress {
      * Zaimplementuj metodę, która zwróci obiekt EmailAddress, tylko gdy parametr address jest poprawny
      * jeśli nie to zgłosi wyjątek IllegalArgumentException z komunikatem: address + "is not valid email address!"
      */
-    public static EmailAddress of(String address){
-
-        return null;
+    public static EmailAddress of(String address) throws IllegalArgumentException{
+        if(!isValidAddress(address)) {
+            throw new IllegalArgumentException(address + " is not valid email address!");
+        }
+        return new EmailAddress(address);
     }
 
     /**
-     * Zaimplementuj metodę, która tworzy obiekt EmailAddress na podstawie loginu i hosta
+     * Zaimplementuj metodę, która tworzy obiekt EmailAddress na podstawie username i hosta
      * Jeśli nie można zbudowac poprawnego adresu np. gdy w login znajduje się znak '@' lub inny niż alfanumeryczny
      * to zgłosi jeden z dwóch wyjątków:
-     *          - IllegalLoginException, gdy login jest niepoprawnie zbudowany
+     *          - IllegalUsernameException, gdy username jest niepoprawnie zbudowany
      *          - IllegalHostException, gdy nazwa host nie niepoprawna
      * Jeśli oba argumenty są błędne to zgłaszamy pierwszy wyjątek
      * Obie klasy wyjątków należy samodzielnie zdefiniować
      */
 
-    public static EmailAddress of(String login, String host) {
-
+    public static Exception from(String username, String host) throws IllegalUsernameException, IllegalHostException {
+        if(!isValidUsername(username)) {
+            throw new IllegalUsernameException();
+        }
+        if(!isValidHost(host)) {
+            throw new IllegalHostException();
+        }
         return null;
     }
 
+    public static EmailAddress of(String username, String host) throws IllegalHostException, IllegalUsernameException {
+        if(!isValidUsername(username) || !isValidHost(host)) {
+            from(username, host);
+        }
+        return new EmailAddress(username + "@" + host);
+    }
+
     public String get(){
-         return address;
+        return address;
     }
     public String username(){
         return extractUsername(address);
@@ -58,7 +78,7 @@ public class EmailAddress {
         return !isNull(address)
                 && !isEmpty(address)
                 && hasOneAtSymbol(address)
-                && hasAtLeastOneDotAfterSymbol(address)
+                && hasAtLeastOneDotAfterAtSymbol(address)
                 && isValidUsername(extractUsername(address))
                 && isValidHost(extractHost(address));
     }
@@ -87,7 +107,7 @@ public class EmailAddress {
         return input.indexOf('@') == input.lastIndexOf('@') && input.indexOf('@') >= 0;
     }
 
-    static private boolean hasAtLeastOneDotAfterSymbol(String input){
+    static private boolean hasAtLeastOneDotAfterAtSymbol(String input){
         return input.indexOf('@') < input.lastIndexOf('.');
     }
 
@@ -99,5 +119,10 @@ public class EmailAddress {
             }
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return address;
     }
 }
