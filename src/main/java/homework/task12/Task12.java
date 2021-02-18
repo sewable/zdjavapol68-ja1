@@ -29,15 +29,15 @@ package homework.task12;
 public class Task12 {
     public static void main(String[] args) {
 
-        Egg egg = new Egg("Egg", 100);
-        Ham ham = new Ham("Ham", 260, 4.6);
-        Dish breakfast = new Dish("Breakfast");
-
-        breakfast.addIngredient(egg);
-        breakfast.addIngredient(ham);
-        System.out.println(breakfast.ingredients());
-        System.out.println(breakfast.weight());
-        System.out.println(breakfast.calories());
+//        Egg egg = new Egg("Egg", 100);
+//        Ham ham = new Ham("Ham", 260, 4.6);
+//        Dish breakfast = new Dish("Breakfast");
+//
+//        breakfast.addIngredient(egg);
+//        breakfast.addIngredient(ham);
+//        System.out.println(breakfast.ingredients());
+//        System.out.println(breakfast.weight());
+//        System.out.println(breakfast.calories());
 
         Cake cake = new Cake("Cake", 1200);
         Tomato tomato = new Tomato("Tomato", 250, 0.54);

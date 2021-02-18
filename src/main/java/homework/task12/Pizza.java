@@ -1,47 +1,74 @@
 package homework.task12;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
 
 public class Pizza extends Dish implements Ingredient {
 
-    Set<Ingredient> pizzaIngredients;
-
     public Pizza(String name) {
         super(name);
-        pizzaIngredients = new HashSet<>();
+        ingredients = new ArrayList<>();
     }
 
     public boolean addCake(Cake cake) {
-        if(pizzaIngredients.add(cake)) {
-            pizzaIngredients.add(cake);
-            return true;
+        for(Ingredient item : ingredients){
+            if(item instanceof Cake){
+                return false;
+            }
         }
-        return false;
+        ingredients.add(cake);
+        return true;
     }
 
     public boolean addTomato(Tomato tomato) {
-        if(pizzaIngredients.add(tomato)) {
-            pizzaIngredients.add(tomato);
-            return true;
+        for(Ingredient item : ingredients) {
+            if(item instanceof Tomato) {
+                return false;
+            }
         }
-        return false;
+        ingredients.add(tomato);
+        return true;
     }
 
     public boolean addCheese(Cheese cheese) {
-        if(pizzaIngredients.add(cheese)) {
-            pizzaIngredients.add(cheese);
-            return true;
+        for(Ingredient item : ingredients) {
+            if(item instanceof Cheese) {
+                return false;
+            }
         }
-        return false;
+        ingredients.add(cheese);
+        return true;
     }
 
     //dodaj metody dodające pozostałe składniki
     public boolean isReady() {
         //zwróć true jeśli są wszystkie składniki
-        if(pizzaIngredients.size() == 3) {
-            return true;
+        boolean check = true;
+        for(Ingredient item : ingredients) {
+            if(item instanceof Cake) {
+                check = true;
+                break;
+            } else {
+                check = false;
+            }
         }
-        return false;
+
+        for(Ingredient item : ingredients) {
+            if(item instanceof Tomato) {
+                check = true;
+                break;
+            } else {
+                check = false;
+            }
+        }
+
+        for(Ingredient item : ingredients) {
+            if(item instanceof Cheese) {
+                check = true;
+                break;
+            } else {
+                check = false;
+            }
+        }
+        return check;
     }
 }
