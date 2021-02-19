@@ -42,33 +42,23 @@ public class Pizza extends Dish implements Ingredient {
     //dodaj metody dodające pozostałe składniki
     public boolean isReady() {
         //zwróć true jeśli są wszystkie składniki
-        boolean check = true;
-        for(Ingredient item : ingredients) {
+        int cake = 0;
+        int tomato = 0;
+        int cheese = 0;
+        for (Ingredient item : ingredients) {
             if(item instanceof Cake) {
-                check = true;
-                break;
-            } else {
-                check = false;
+                cake++;
             }
-        }
-
-        for(Ingredient item : ingredients) {
             if(item instanceof Tomato) {
-                check = true;
-                break;
-            } else {
-                check = false;
+                tomato++;
             }
-        }
-
-        for(Ingredient item : ingredients) {
             if(item instanceof Cheese) {
-                check = true;
-                break;
-            } else {
-                check = false;
+                cheese++;
             }
         }
-        return check;
+        if(cake == 1 && tomato == 1 && cheese == 1) {
+            return true;
+        }
+        return false;
     }
 }
