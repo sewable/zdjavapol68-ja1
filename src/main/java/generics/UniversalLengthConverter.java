@@ -4,6 +4,7 @@ public class UniversalLengthConverter<T extends Length, R extends Length> implem
 
     @Override
     public R convert(T value) {
+        //return new R(new LengthInM(value.getInM()));
         return null;
     }
 }
