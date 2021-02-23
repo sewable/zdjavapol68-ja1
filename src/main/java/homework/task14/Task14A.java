@@ -1,7 +1,6 @@
 package homework.task14;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 /**
  * CZĘŚĆ 1
@@ -26,9 +25,10 @@ public class Task14A {
         int bajt;
         int wordcount = 0;
         int versecount = 0;
+        int fourLettersWords = 0;
         while ((bajt = input.read()) != -1) {
-            System.out.println("Byte: " + bajt + ", char: " + (char)bajt);
-            if(bajt == 32) {
+            System.out.println("Byte: " + bajt + "\tchar: " + (char)bajt);
+            if(bajt == 32 || bajt == 10) {
                 wordcount++;
             }
             if(bajt == 10) {
@@ -42,5 +42,18 @@ public class Task14A {
         System.out.println("Number of words: " + wordcount);
         versecount++;
         System.out.println("Number of verses: " + versecount);
+
+        File file = new File("C:\\Users\\sewab\\Desktop\\Programowanie\\Projekty\\Java zaawansowana\\zdjavapol68-ja1\\src\\main\\resources\\out_task14.txt");
+        try {
+            FileOutputStream output = new FileOutputStream(file);
+
+            output.write((byte)wordcount);
+            output.write(10);
+            output.write((byte)versecount);
+        } catch (FileNotFoundException e) {
+            System.out.println("There is no such data");
+        } catch (IOException e) {
+            System.out.println("Error in saving data");
+        }
     }
 }
