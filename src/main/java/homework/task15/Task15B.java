@@ -1,6 +1,8 @@
 package homework.task15;
 import java.io.*;
 import java.net.URL;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 /**
@@ -16,14 +18,24 @@ import java.net.URL;
  *
  */
 public class Task15B {
-    public static void main(String[] args) {
-        //Przykład pobranie pliku w wątku głownym
-        String url = "https://stormit.pl/wp-content/uploads/java-historia.png";
-        //Tworzymy obiekt file tylko po to, był łatwiej dostać samą nazwę pliku z URL
-        File file = new File(url);
-        System.out.println("Download started");
-        download("https://stormit.pl/wp-content/uploads/java-historia.png", "c:\\data\\" + file.getName());
-        System.out.println("File downloaded");
+    public static void main(String[] args) throws InterruptedException {
+//        //Przykład pobranie pliku w wątku głownym
+//        String url = "https://stormit.pl/wp-content/uploads/java-historia.png";
+//        //Tworzymy obiekt file tylko po to, był łatwiej dostać samą nazwę pliku z URL
+//        File file = new File(url);
+//        System.out.println("Download started");
+//        download("https://stormit.pl/wp-content/uploads/java-historia.png", "C:\\Users\\sewab\\Desktop\\Programowanie\\Projekty\\Java zaawansowana\\data" + file.getName());
+//        System.out.println("File downloaded");
+
+
+
+        ExecutorService executor = Executors.newFixedThreadPool(4);
+        executor.execute(new Task15BThread1());
+        executor.execute(new Task15BThread2());
+        executor.execute(new Task15BThread3());
+        executor.execute(new Task15BThread4());
+        Thread.sleep(3000);
+        executor.shutdown();
     }
 
     /**
