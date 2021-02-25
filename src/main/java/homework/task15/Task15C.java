@@ -71,7 +71,7 @@ public class Task15C {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             String command = scanner.nextLine();
-            switch (command) {
+            switch (command.toUpperCase()) {
                 case "S":
                     System.out.println("STOPPING");
                     service.shutdownNow();

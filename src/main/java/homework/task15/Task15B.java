@@ -3,6 +3,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -35,7 +36,7 @@ public class Task15B {
         executor.execute(new Task15BThread3());
         executor.execute(new Task15BThread4());
         Thread.sleep(3000);
-        executor.shutdown();
+        executor.shutdownNow();
     }
 
     /**
