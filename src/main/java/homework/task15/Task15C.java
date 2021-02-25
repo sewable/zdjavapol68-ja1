@@ -1,4 +1,6 @@
 package homework.task15;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.BlockingQueue;
@@ -59,14 +61,17 @@ public class Task15C {
     public static void main(String[] args) {
         BlockingQueue<String> queue = new LinkedBlockingQueue<>();
         RequestProducer producer = new RequestProducer(1000, queue);
-        //List<RequestConsumer> consumers = Arrays.asList(new RequestConsumer(3000, queue), ..);
+        List<RequestConsumer> consumers = Arrays.asList(new RequestConsumer(3000, queue), new RequestConsumer(4000, queue), new RequestConsumer(5000, queue));
         ExecutorService service = Executors.newCachedThreadPool();
         service.execute(producer);
         //uruchom wszystkie wątki konsumetów z kolekcji consumers
+        service.execute(consumers.get(0));
+        service.execute(consumers.get(1));
+        service.execute(consumers.get(2));
         Scanner scanner = new Scanner(System.in);
-        while(true){
+        while (true) {
             String command = scanner.nextLine();
-            switch (command){
+            switch (command) {
                 case "S":
                     System.out.println("STOPPING");
                     service.shutdownNow();
@@ -76,6 +81,9 @@ public class Task15C {
                     service = Executors.newCachedThreadPool();
                     service.execute(producer);
                     //ponownie uruchom wszystkei wątki konsumentów z kolekcji consumers
+                    service.execute(consumers.get(0));
+                    service.execute(consumers.get(1));
+                    service.execute(consumers.get(2));
                     break;
                 case "Q":
                     return;
